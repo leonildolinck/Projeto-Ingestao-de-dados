@@ -5,6 +5,7 @@ __pycache__/
 config.py
 *.json
 .idea/
+*.ipynb
 
 # C extensions
 *.so
