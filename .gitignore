@@ -11,6 +11,7 @@ config.py
 *.so
 
 # Distribution / packaging
+.virtual_documents/
 .Python
 build/
 develop-eggs/
