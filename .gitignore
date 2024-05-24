@@ -6,6 +6,7 @@ config.py
 *.json
 .idea/
 *.ipynb
+old/
 
 # C extensions
 *.so
@@ -15,6 +16,7 @@ config.py
 .Python
 build/
 develop-eggs/
+virtual_documents/
 dist/
 downloads/
 eggs/
