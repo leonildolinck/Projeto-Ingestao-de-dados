@@ -7,6 +7,10 @@ config.py
 .idea/
 *.ipynb
 old/
+.virtual_documents/
+
+
+
 
 # C extensions
 *.so
