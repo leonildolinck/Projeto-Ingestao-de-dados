@@ -55,6 +55,12 @@ O pipeline de dados é responsável por coletar informações sobre ações da N
   - Realiza as transformações necessárias usando o Pandas.
   - Carrega os DataFrames no banco de dados PostgreSQL.
 
+## 4. Consumo dos dados
+
+Os dados foram utilizados para geração de um dashboard dee auxilio de tomada de decisões financeiras. Segue o link:
+
+https://app.powerbi.com/view?r=eyJrIjoiZDFhYzIzY2EtNDdlZi00MjkzLTkyNTAtZjdhYzcwZDRjN2EyIiwidCI6ImUwMzM3YTU4LTgxZjctNDU1YS1iNzlkLWY2MTdmZWI3YjU1NSJ9
+
 ## Configuração
 
 - Certifique-se de configurar suas credenciais para a API do Polygon.io e para o banco de dados PostgreSQL.
