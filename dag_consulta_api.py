@@ -1,19 +1,25 @@
 from datetime import datetime, timedelta
-from airflow import DAG
-from airflow.operators.python import PythonOperator
 import requests
-from azure.storage.blob import BlobServiceClient
-from sqlalchemy import create_engine
 import json
 import time
 
+from airflow import DAG
+from airflow.models import Variable
+from airflow.operators.python import PythonOperator
 
-API_KEY = 'AIg0fOnpNQ5BqbqRfYpKWivUbyldtioa'
-API_URL = 'https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/'
-DB_URL = 'postgresql+psycopg2://koru_j8mm_user:mVPYJRzo9Ve20CebTRI6pEbK3vSIldcL@dpg-cobdglv109ks738hlstg-a.oregon-postgres.render.com/koru_j8mm'
-azure_string = "DefaultEndpointsProtocol=https;AccountName=projetokoru;AccountKey=ii99xnIASPtva3tw1Vx6CmVYQih8WGbVy+MHG6ACVofXHIZc1GmGZPX7uLPIW1hQRczVCb+eSpde+ASt+27lNQ==;EndpointSuffix=core.windows.net"
-azure_container = "projeto-airflow"
-dias = 30
+from azure.storage.blob import BlobServiceClient
+from sqlalchemy import create_engine
+
+
+
+azure_container='projeto-airflow'
+API_KEY = Variable.get('API_KEY')
+API_URL = Variable.get('API_URL')
+DB_URL = Variable.get('DB_URL') 
+azure_string = Variable.get('azure_string')
+postgres_table_name = Variable.get('postgres_table_name')
+prefixo = Variable.get('prefixo')
+dias = 90
 
 
 def consulta_db(engine):
@@ -70,7 +76,7 @@ def obter_lista(*args):
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2024, 5, 24),
+    'start_date': datetime(2024, 6, 4),
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
